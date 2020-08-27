@@ -1,0 +1,39 @@
+.cart-box {
+    padding: 30px 14px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.cart-box:hover {
+    background-color: #ddd;
+    box-shadow: 10px 5px 10px #999;
+}
+
+.cartDetails p {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.cartDetails p strong {
+    position: absolute;
+    right: 0;
+}
+
+p.totalCost {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cartDetails h1 {
+    text-align: center;
+    font-size: 32px;
+    border-bottom: 2px solid #999;
+    margin-bottom: 15px;
+}
+
+.cartDetails button {
+    margin-top: 12px;
+}
+button.btn.btn-danger svg {
+    margin-left: 10px;
+}

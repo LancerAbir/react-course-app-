@@ -1,0 +1,25 @@
+.details-box {
+    padding: 20px 0;
+}
+.details-content button {
+    margin-top: 20px;
+}
+
+.summary li.summary-list {
+    list-style: none;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    line-height: 25px;
+    transition: .3s;
+}
+
+.summary h5 {
+    font-size: 15px;
+}
+
+.summary li.summary-list svg {
+    margin-right: 8px;
+    font-size: 11px;
+    position: relative;
+    top: -1px;
+}

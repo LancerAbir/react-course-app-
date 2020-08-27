@@ -1,0 +1,42 @@
+.card {
+    padding: 11px;
+    margin-left: -15px;
+    margin-right: 10px;
+    transition: .3s;
+    border: none;
+    margin-bottom: 21px;
+    border-radius: 10px;
+}
+
+.card-body h5 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 14px 0;
+}
+
+.card img {
+    border-radius: 10px;
+    max-height: 200px;
+    width: 100%;
+    transition: .3s;
+}
+
+.card-body h5 {
+    font-size: 18px;
+}
+
+.card:hover {
+    background-color: #ddd;
+    box-shadow: 10px 5px 10px #999;
+}
+
+.card:hover img {
+    opacity: .8;
+}
+
+.card:hover .summary li.summary-list {
+    border-bottom: 1px solid #999;
+}
