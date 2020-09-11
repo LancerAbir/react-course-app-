@@ -1,15 +1,14 @@
 import React from 'react';
 import './Cart.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+
 
 const Cart = (props) => {
-    console.log(props.cart);
+
     // Distructure
     const cartBox = props.cart
 
     // reduce loop function
-    let price = cartBox.reduce((result, prd) => result + prd.price, 0)
+    let price = cartBox.reduce((result, prd) => result + prd.price * prd.quantity, 0)
 
     // Discount
     const discount = price * 10 / 100
@@ -35,7 +34,9 @@ const Cart = (props) => {
                 <p>Discount 10%<strong>${formatNumber(discount)}</strong></p>
                 <p>Tax 7%<strong>${formatNumber(tax)}</strong></p>
                 <p className="totalCost">Total Price <strong>${formatNumber(grandTotal)}</strong></p>
-                <button className="btn btn-danger">Check Out<FontAwesomeIcon icon={faShoppingBag} /></button>
+                {
+                    props.children
+                }
             </div>
 
         </div>

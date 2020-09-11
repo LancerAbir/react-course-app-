@@ -1,38 +1,41 @@
-import React, { useState } from 'react';
-import courseData from './courseData'
-import Course from './components/Course/Course';
+import React from 'react';
 import './App.css'
-import Cart from './components/Cart/Cart';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Header from './components/Header/Header';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Blog from './components/Blog';
+import NotFound from './components/NotFound';
+
+import SingleCourse from './components/SingleCourse/SingleCourse';
+import CartReview from './components/Cart/CartReview';
+
 
 
 function App() {
-
-  const [courses] = useState(courseData)
-
-  const [cart, setCart] = useState([])
-
-  const addToCartHandler = (e) => {
-    const newCart = [...cart, e]
-    setCart(newCart)
-  }
-
   return (
     <div className="container">
-      <h1 className="text-center header bg-secondary text-white" >Online Crash Course</h1>
-      <div className="row">
-        <div className="col-md-9">
-          <div className="course-box">
-            <div className="row">
-              {
-                courses.map(course => <div className="col-md-6"> <Course key={course.key} addToCartHandler={addToCartHandler} course={course}></Course></div>)
-              }
-            </div>
-          </div>
+      <BrowserRouter>
+        <Header />
+        <div className="row">
+          <Switch>
+            <Route exact path="/" component={Home} />
+
+            <Route path="/about" component={About} />
+
+            <Route path="/contact" component={Contact} />
+
+            <Route path="/blog" component={Blog} />
+
+            <Route path="/course/:SingleCourseKey" component={SingleCourse} />
+
+            <Route path="/cartReview" component={CartReview} />
+
+            <Route path="*" component={NotFound} />
+          </Switch>
         </div>
-        <div className="col-md-3">
-          <Cart cart={cart}> </Cart>
-        </div>
-      </div>
+      </BrowserRouter>
     </div>
   );
 }
