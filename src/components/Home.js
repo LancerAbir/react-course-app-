@@ -35,7 +35,7 @@ const Home = () => {
         if (sameProduct) {
             count = sameProduct.quantity + 1
             sameProduct.quantity = count
-            const others = cart.filter(pd => pd.key != toBeAddKey)
+            const others = cart.filter(pd => pd.key !== toBeAddKey)
             newCart = [...others, sameProduct]
         } else {
             e.quantity = 1

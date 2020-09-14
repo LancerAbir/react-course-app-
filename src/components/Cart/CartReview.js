@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import courseData from '../../courseData';
 import { Card, Button } from 'react-bootstrap';
 import Cart from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import happyImage from '../../images/giphy.gif'
 
 
@@ -13,12 +13,11 @@ const CartReview = () => {
 
     const [cart, setCart] = useState([])
 
-    const [orderPlaced, setOrderPlaced] = useState(false)
+    const [orderPlaced] = useState(false)
 
-    const orderPlacedHandler = () => {
-        setCart([])
-        setOrderPlaced(true)
-        processOrder()
+    const history = useHistory()
+    const proceedCheckoutHandler = () => {
+        history.push('/shipment')
     }
     const removeItem = (productKey) => {
         console.log("remove item", productKey);
@@ -78,9 +77,7 @@ const CartReview = () => {
             </div>
             <div className="col-md-3">
                 <Cart cart={cart}>
-                    <Link to="/cartReview">
-                        <button onClick={orderPlacedHandler} className="btn btn-danger">Check Out<FontAwesomeIcon icon={faShoppingBag} /></button>
-                    </Link>
+                    <button onClick={proceedCheckoutHandler} className="btn btn-danger">Proceed Checkout <FontAwesomeIcon icon={faShoppingBag} /></button>
                 </Cart>
             </div>
         </div>
