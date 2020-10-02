@@ -58,7 +58,7 @@ const CartReview = () => {
                                     <Card.ImgOverlay>
                                         <Card.Title>{ct.name}</Card.Title>
                                         <Card.Text>
-                                            Price {ct.price}
+                                            Price is {ct.price}
                                         </Card.Text>
                                         <Card.Text>
                                             Quantity {ct.quantity}

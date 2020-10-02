@@ -62,7 +62,7 @@ const Home = () => {
             <div className="col-md-3">
                 <Cart cart={cart}>
                     <Link to="/cartReview">
-                        <button className="btn btn-info">Cart Review<FontAwesomeIcon icon={faSearch} /></button>
+                        <button className="btn btn-info">Cart Review <FontAwesomeIcon icon={faSearch} /></button>
                     </Link>
                 </Cart>
             </div>

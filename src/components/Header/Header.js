@@ -8,6 +8,7 @@ const Header = () => {
 
     //** Data Come Form Context API  */
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    console.log(loggedInUser);
 
     return (
         <div>
@@ -28,10 +29,22 @@ const Header = () => {
                     <Button variant="outline-light">Search</Button>
                 </Form>
                 <Nav className="ml-auto">
-                    <NavLink to="/login">Login</NavLink>
-                    <NavLink to="/logout">logout</NavLink>
+
                 </Nav>
-                <Button onClick={() => setLoggedInUser({})} className="btn btn-danger">Logout</Button>
+
+                {
+                    loggedInUser.successful === true ? <p> login </p> : <p> logout </p>
+                }
+
+                {
+                    loggedInUser.isSignedIN = false ?
+                        <Button onClick={() => setLoggedInUser({})} className="btn btn-danger">Logout</Button>
+                        :
+                        <NavLink to="/login">
+                            <Button className="btn btn-danger">Login</Button>
+                        </NavLink>
+                }
+
             </Navbar>
         </div >
 
